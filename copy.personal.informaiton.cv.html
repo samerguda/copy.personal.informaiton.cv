@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            direction: rtl; /* Set the text direction to right-to-left for Arabic */
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            direction: ltr; /* Set the text direction back to left-to-right inside the container */
+        }
+        .personal-info {
+            margin-bottom: 20px;
+        }
+        .personal-info strong {
+            display: inline-block;
+            width: 120px;
+        }
+        .personal-info div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Personal Information / المعلومات الشخصية</h2>
+        <div class="personal-info">
+            <div>
+                <span><strong>Name:</strong> Samer Guda Alsaadni / <strong>الاسم:</strong> اسمك</span>
+                <button onclick="copyText('#name')">Copy</button>
+            </div>
+            <span id="name">Samer Guda Alsaadni</span>
+        </div>
+        <div class="personal-info">
+            <div>
+                <span><strong>Address:</strong> Abha - Saudi Arabia / <strong>العنوان:</strong> عنوانك</span>
+                <button onclick="copyText('#address')">Copy</button>
+            </div>
+            <span id="address">Abha - Saudi Arabia</span>
+        </div>
+        <div class="personal-info">
+            <div>
+                <span><strong>Phone:</strong> +966548247897 / <strong>رقم الهاتف:</strong> رقم هاتفك</span>
+                <button onclick="copyText('#phone')">Copy</button>
+            </div>
+            <span id="phone">+966548247897</span>
+        </div>
+        <div class="personal-info">
+            <div>
+                <span><strong>Email:</strong> samerguda@gmail.com / <strong>البريد الإلكتروني:</strong> بريدك الإلكتروني</span>
+                <button onclick="copyText('#email')">Copy</button>
+            </div>
+            <span id="email">samerguda@gmail.com</span>
+        </div>
+        <button onclick="printPage()">Print</button>
+    </div>
+
+    <script>
+        function copyText(selector) {
+            const text = document.querySelector(selector).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Text copied to clipboard');
+            }).catch(err => {
+                alert('Failed to copy text: ' + err);
+            });
+        }
+
+        function printPage() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
